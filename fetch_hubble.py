@@ -11,7 +11,7 @@ def extract_hubble_collection(collection):
 	collection(str): the name of collection on the website
 	
     Returns:
-        id_list(list): the list of images   
+        id_list(list): the list of images ID   
 
     """
     id_list = []
@@ -25,7 +25,7 @@ def extract_hubble_collection(collection):
     else:
         return None
 
-def extract_fetch_hubble(id_list):
+def extract_links_images_hubble(id_list):
     img_list = []
     for id in id_list:
         _url ='http://hubblesite.org/api/v3/image/' + str(id)
@@ -48,5 +48,5 @@ def fetch_hubble_launch(collection):
 
     """
     collections_list = extract_hubble_collection(collection)
-    images_list = extract_fetch_hubble(collections_list)
+    images_list = extract_links_images_hubble(collections_list)
     save_pictures(images_list)
