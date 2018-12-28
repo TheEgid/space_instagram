@@ -15,9 +15,9 @@ if __name__ == '__main__':
     LOGIN_INST = os.getenv("LOGIN_INST")
     PASSWORD_INST = str(os.getenv("PASSWORD_INST"))
 
-    #fetch_space_x_last_launch()
+    #save_space_x_last_launch()
 
-    #fetch_hubble_launch('printshop') #wallpaper
+    #save_hubble_launch('printshop') #wallpaper
 
     inst_publication(LOGIN_INST, PASSWORD_INST)
 
