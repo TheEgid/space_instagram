@@ -8,10 +8,10 @@ def extract_hubble_collection(collection):
     http://hubblesite.org
 	
     Args:
-	    collection(str): the name of collection on the website
+	collection(str): the name of collection on the website
 	
     Returns:
-		id_list(list): the list of images   
+        id_list(list): the list of images   
 
     """
     id_list = []
