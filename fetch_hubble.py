@@ -44,7 +44,7 @@ def fetch_hubble_launch(collection):
 	http://hubblesite.org
 	
     Args:
-	    collection(str): the name of collection on the website
+	collection(str): the name of collection on the website
 
     """
     collections_list = extract_hubble_collection(collection)
