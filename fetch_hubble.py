@@ -45,7 +45,7 @@ def fetch_hubble_launch(collection):
 	
     Args:
 	collection(str): the name of collection on the website
-
+	
     """
     collections_list = extract_hubble_collection(collection)
     images_list = extract_links_images_hubble(collections_list)
