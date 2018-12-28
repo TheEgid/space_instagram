@@ -34,7 +34,7 @@ def extract_links_images_hubble(id_list):
             img = response.json()['image_files'][-1]
             img_list.append(img['file_url'])
         else:
-            logging.info('No photos now')
+            logging.info('no images now')
             return None
     return img_list
 
