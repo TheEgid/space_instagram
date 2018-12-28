@@ -10,6 +10,12 @@ from space_instagram.fetch_hubble import fetch_hubble_launch
 from space_instagram.inst_post import inst_publication
 
 
+def inst_fetch_post():
+ 
+    pass
+    
+    
+    
 if __name__ == '__main__':
     load_dotenv()
     LOGIN_INST = os.getenv("LOGIN_INST")
