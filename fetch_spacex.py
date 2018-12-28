@@ -1,13 +1,8 @@
 import requests
 from .save_the_pictures import save_pictures
 import logging
-
 logging.basicConfig(level=logging.INFO)
 
-'''
-Space X
-
-'''
 
 def extract_fetch_space_x():
     """Fetch list of images from SpaceX website.
