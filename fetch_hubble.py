@@ -1,13 +1,7 @@
 import requests
 from .save_the_pictures import save_pictures
 import logging
-
 logging.basicConfig(level=logging.INFO)
-
-'''
-Hubble program
-
-'''
 
 def extract_hubble_collection(collection):
     id_list = []
@@ -36,6 +30,13 @@ def extract_fetch_hubble(id_list):
 
 
 def fetch_hubble_launch(collection):
+    """Fetch images of different collections from Hubble website.
+	http://hubblesite.org
+
+    Args:
+		collection(str): the name of the collection on the website
+
+    """
     collections_list = extract_hubble_collection(collection)
     images_list = extract_fetch_hubble(collections_list)
     save_pictures(images_list)
