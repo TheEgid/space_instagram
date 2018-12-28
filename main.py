@@ -22,7 +22,3 @@ if __name__ == '__main__':
     inst_publication(LOGIN_INST, PASSWORD_INST)
 
     print('Done!')
-
-
-
-
