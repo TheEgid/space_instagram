@@ -9,7 +9,7 @@ def extract_links_images_space_x():
     http://www.spacex.com/
 
     Returns:
-        fetch(list)
+        fetch(list): list of links
 
     """
     response = requests.get('https://api.spacexdata.com/v3/launches/latest')
@@ -26,7 +26,7 @@ def extract_links_images_space_x():
 
 def fetch_space_x_last_launch():
     """Save images of last launch from SpaceX website.
-	http://www.spacex.com/
+    http://www.spacex.com/
 
     """
     save_pictures(extract_links_images_space_x())
