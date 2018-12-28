@@ -25,4 +25,8 @@ def extract_fetch_space_x():
         return None
 
 def fetch_space_x_last_launch():
+    """Save images of last launch from SpaceX website.
+	http://www.spacex.com/
+
+    """
     save_pictures(extract_fetch_space_x())
