@@ -19,7 +19,7 @@ def extract_links_images_space_x():
         if fetch:
             return fetch
         else:
-            logging.info(u'No photos now')
+            logging.info(no images now')
             raise SystemExit()
     else:
         return None
