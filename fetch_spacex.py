@@ -4,8 +4,8 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 
-def extract_fetch_space_x():
-    """Fetch list of images from SpaceX website.
+def extract_links_images_space_x():
+    """Fetch links of images from SpaceX website.
     http://www.spacex.com/
 
     Returns:
@@ -29,4 +29,4 @@ def fetch_space_x_last_launch():
 	http://www.spacex.com/
 
     """
-    save_pictures(extract_fetch_space_x())
+    save_pictures(extract_links_images_space_x())
