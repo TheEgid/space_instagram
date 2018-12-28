@@ -10,6 +10,13 @@ Space X
 '''
 
 def extract_fetch_space_x():
+    """Fetch list of images from SpaceX website.
+    http://www.spacex.com/
+
+    Returns:
+        fetch(list)
+
+    """
     response = requests.get('https://api.spacexdata.com/v3/launches/latest')
     if response.ok:
         fetch_json = response.json()
