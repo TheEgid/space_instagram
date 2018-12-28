@@ -29,12 +29,12 @@ def extract_fetch_hubble(id_list):
     return img_list
 
 
-def fetch_hubble_launch(collection):
-    """Fetch images of different collections from Hubble website.
+def save_hubble_launch(collection):
+    """Save images of different collections from Hubble website.
 	http://hubblesite.org
-
+	
     Args:
-		collection(str): the name of the collection on the website
+	collection(str): the name of collection on the website
 
     """
     collections_list = extract_hubble_collection(collection)
