@@ -1,32 +1,24 @@
+"""Get from SPACE X."""
 import requests
-from .save_the_pictures import save_pictures
 import logging
 logging.basicConfig(level=logging.INFO)
 
 
-def extract_links_images_space_x():
+def fetch_space_x_last_launch():
     """Fetch links of images from SpaceX website.
+
     http://www.spacex.com/
-
     Returns:
-        fetch(list): list of links
-
+        id_list(list): the list of urls for images
     """
     response = requests.get('https://api.spacexdata.com/v3/launches/latest')
     if response.ok:
         fetch_json = response.json()
-        fetch = fetch_json['links']['flickr_images']
-        if fetch:
-            return fetch
+        img_list = fetch_json['links']['flickr_images']
+        if img_list:
+            return img_list
         else:
-            logging.info(no images now')
+            logging.info('no images now')
             raise SystemExit()
     else:
         return None
-
-def fetch_space_x_last_launch():
-    """Save images of last launch from SpaceX website.
-    http://www.spacex.com/
-
-    """
-    save_pictures(extract_links_images_space_x())
