@@ -7,10 +7,19 @@ logging.basicConfig(level=logging.INFO)
 
 
 def get_file_extension(url):
+    """Get extension from url"""
     return '.' + str(url.split('.')[-1])
 
 
 def save_picture(url, path):
+    """Save image from path.
+    
+    Args:
+        url(str): image link
+        path(str): image file folder
+        
+    """
+
     dir_name = str(path.split('/')[0])
 
     if not os.path.exists(dir_name):
@@ -28,7 +37,7 @@ def save_picture(url, path):
 
 
 def save_pictures(img_list, file_name='space', folder_name='images'):
-    """Save all images in the list.
+    """Enumeration & save all images in the list.
     
     Args:
 	img_list(list): list contains images links
