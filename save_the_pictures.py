@@ -10,12 +10,12 @@ def get_file_extension(url):
     return '.' + str(url.split('.')[-1])
 
 
-def save_picture(url, destination):
-    dir_name = str(destination.split('/')[0])
+def save_picture(url, path):
+    dir_name = str(path.split('/')[0])
 
     if not os.path.exists(dir_name):
         os.makedirs(dir_name)
-    filename = destination + get_file_extension(url)
+    filename = path + get_file_extension(url)
     response = requests.get(url)
 
     if response.ok:
@@ -40,8 +40,8 @@ def save_pictures(img_list, file_name='space', folder_name='images'):
     if not isinstance(img_list, list):
         raise TypeError('incorrect img_list')
     for index, img in enumerate(img_list, 1):
-        address = folder_name + '/'+ file_name + str(index)
-        save_picture(img, address)
+        path = folder_name + '/'+ file_name + str(index)
+        save_picture(img, path)
 
         
 def make_imageresize(file_path, extension='.jpg'):
