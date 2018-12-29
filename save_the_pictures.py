@@ -56,20 +56,19 @@ def make_imageresize(file_path):
     vertical = [600, 750]
     quadrate = [gorizontal[0], gorizontal[0]]
 
-    if not file_path pattern.endswith('.jpg'):
-	 pass
-
-    fd_img = open(file_path, 'rb')
-    img = Image.open(fd_img)
-    try:
-        if img.width > img.height:
-            img = resizeimage.resize_contain(img, gorizontal)
-        elif img.width == img.height:
-            img = resizeimage.resize_contain(img, quadrate)
-        else:
-            img = resizeimage.resize_contain(img, vertical)
-    except resizeimage.ImageSizeError:
-        pass
-
-    img.save(file_path, img.format)
-    fd_img.close()
+    if file_path pattern.endswith('.jpg'):
+    	fd_img = open(file_path, 'rb')
+    	img = Image.open(fd_img)
+    	try:
+            if img.width > img.height:
+            	img = resizeimage.resize_contain(img, gorizontal)
+       	    elif img.width == img.height:
+            	img = resizeimage.resize_contain(img, quadrate)
+            else:
+                img = resizeimage.resize_contain(img, vertical)
+        except resizeimage.ImageSizeError:
+            pass
+        img.save(file_path, img.format)
+        fd_img.close()
+    else:
+	pass
