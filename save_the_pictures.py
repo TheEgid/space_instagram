@@ -44,19 +44,20 @@ def save_pictures(img_list, file_name='space', folder_name='images'):
         save_picture(img, address)
 
         
-def make_imageresize(file_path):
+def make_imageresize(file_path, extension='.jpg'):
     """Resize images for standardized instagram posting.
     
     Args:
         file_path(str): image file location
-        
+        extension(str): image file extension
+	
     """
     
     gorizontal = [1080, 565]
     vertical = [600, 750]
     quadrate = [gorizontal[0], gorizontal[0]]
 
-    if file_path pattern.endswith('.jpg'):
+    if file_path pattern.endswith(extension):
     	fd_img = open(file_path, 'rb')
     	img = Image.open(fd_img)
     	try:
@@ -67,7 +68,7 @@ def make_imageresize(file_path):
             else:
                 img = resizeimage.resize_contain(img, vertical)
         except resizeimage.ImageSizeError:
-            pass
+            logging.info('ImageSizeError' + img)
         img.save(file_path, img.format)
         fd_img.close()
     else:
