@@ -12,7 +12,18 @@ from space_instagram.inst_post import inst_publication
 
 def inst_fetch_post():
     #проверка https://pypi.org/project/pep257/
-    pass
+    load_dotenv()
+    LOGIN_INST = os.getenv("LOGIN_INST")
+    PASSWORD_INST = str(os.getenv("PASSWORD_INST"))
+    collection='#wallpaper'
+    file_name='filename'
+    folder_name='images'
+    extension='.jpg'
+    
+    fetch_space_x_last_launch()
+    fetch_hubble_launch() 
+    inst_publication(LOGIN_INST, PASSWORD_INST)
+
     
     
     
