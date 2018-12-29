@@ -27,16 +27,31 @@ def save_picture(url, destination):
         return None
 
 
-def save_pictures(img_list):
+def save_pictures(img_list, file_name='space', folder_name='images'):
+    """Save all images in the list.
+    
+    Args:
+	    img_list(list): list contains images links
+        file_name(str): pattern of the image file name
+        folder_name(str): image file folder
+        
+    """
+    
     if not isinstance(img_list, list):
         raise TypeError('incorrect img_list')
-
     for index, img in enumerate(img_list, 1):
-        address = 'images/space' + str(index)
+        address = folder_name + '/'+ file_name + str(index)
         save_picture(img, address)
 
-
+        
 def make_imageresize(file_path):
+    """Resize images for standardized instagram posting.
+    
+    Args:
+        file_path(str): image file location
+        
+    """
+    
     gorizontal = [1080, 565]
     vertical = [600, 750]
     quadrate = [gorizontal[0], gorizontal[0]]
