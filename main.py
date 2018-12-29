@@ -11,7 +11,7 @@ from space_instagram.inst_post import inst_publication
 
 
 def inst_fetch_post():
- 
+    #проверка https://pypi.org/project/pep257/
     pass
     
     
