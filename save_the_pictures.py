@@ -57,7 +57,7 @@ def make_imageresize(file_path, extension='.jpg'):
     vertical = [600, 750]
     quadrate = [gorizontal[0], gorizontal[0]]
 
-    if file_path pattern.endswith(extension):
+    if get_file_extension(file_path) == extension:
     	fd_img = open(file_path, 'rb')
     	img = Image.open(fd_img)
     	try:
