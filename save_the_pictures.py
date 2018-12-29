@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 def get_file_extension(url):
-    """Get extension from url"""
+    """Get extension from url."""
     return '.' + str(url.split('.')[-1])
 
 
