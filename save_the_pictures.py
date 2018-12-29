@@ -56,6 +56,9 @@ def make_imageresize(file_path):
     vertical = [600, 750]
     quadrate = [gorizontal[0], gorizontal[0]]
 
+    if file_path.find('.jpg') < 1:
+	 raise TypeError('file is not .jpg')
+
     fd_img = open(file_path, 'rb')
     img = Image.open(fd_img)
     try:
@@ -70,4 +73,3 @@ def make_imageresize(file_path):
 
     img.save(file_path, img.format)
     fd_img.close()
-
