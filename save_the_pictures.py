@@ -36,7 +36,7 @@ def save_picture(url, path):
         return None
 
 
-def save_pictures(img_list, file_name='space', folder_name='images'):
+def save_pictures(img_list, file_name='filename', folder_name='images'):
     """Enumeration & save all images in the list.
     
     Args:
