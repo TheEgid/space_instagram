@@ -31,7 +31,7 @@ def save_pictures(img_list, file_name='space', folder_name='images'):
     """Save all images in the list.
     
     Args:
-	    img_list(list): list contains images links
+	img_list(list): list contains images links
         file_name(str): pattern of the image file name
         folder_name(str): image file folder
         
@@ -56,8 +56,8 @@ def make_imageresize(file_path):
     vertical = [600, 750]
     quadrate = [gorizontal[0], gorizontal[0]]
 
-    if file_path.find('.jpg') < 1:
-	 raise TypeError('file is not .jpg')
+    if not file_path pattern.endswith('.jpg'):
+	 pass
 
     fd_img = open(file_path, 'rb')
     img = Image.open(fd_img)
