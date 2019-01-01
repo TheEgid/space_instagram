@@ -6,10 +6,6 @@ import random
 import logging
 from instabot import Bot
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.insert(0, os.path.split(dir_path)[0])
-logging.basicConfig(level=logging.INFO)
-
 
 def inst_publish(login, password, folder_name, extension, timeout_value=10):
     """Instagram image posting from folder.

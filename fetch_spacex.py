@@ -1,7 +1,6 @@
 """Get from SPACE X."""
 import requests
 import logging
-logging.basicConfig(level=logging.INFO)
 
 
 def fetch_space_x_last_launch():
@@ -19,6 +18,6 @@ def fetch_space_x_last_launch():
             return img_list
         else:
             logging.info('no images now')
-            raise SystemExit()
+            return None
     else:
         return None

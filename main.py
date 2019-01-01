@@ -1,18 +1,18 @@
 """Main."""
 import os
 import sys
+import logging
 from dotenv import load_dotenv
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.insert(0, os.path.split(dir_path)[0])
 
-from space_instagram.fetch_spacex import fetch_space_x_last_launch
-from space_instagram.fetch_hubble import fetch_hubble_launch
-from space_instagram.inst_post import inst_publish
-from space_instagram.save_the_pictures import save_pictures
+from fetch_spacex import fetch_space_x_last_launch
+from fetch_hubble import fetch_hubble_launch
+from inst_post import inst_publish
+from save_the_pictures import save_pictures
 
 
-def inst_fetch_post(login, password, folder_name, extension, collection):
+def inst_fetch_post(login, password, collection, folder_name='images',
+                    extension='.jpg'):
     """Downloading and publishing."""
     save_pictures(fetch_space_x_last_launch(), folder_name=folder_name,
                   file_name='space', extension=extension)
@@ -25,7 +25,12 @@ def inst_fetch_post(login, password, folder_name, extension, collection):
 
 
 if __name__ == '__main__':
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    sys.path.insert(0, os.path.split(dir_path)[0])
+    logging.basicConfig(level=logging.INFO)
     load_dotenv()
     LOGIN_INST = os.getenv("LOGIN_INST")
     PASSWORD_INST = str(os.getenv("PASSWORD_INST"))
-    inst_fetch_post(LOGIN_INST, PASSWORD_INST, 'images', '.jpg', 'wallpaper')
+    long_url = ''.join(sys.argv[1])  # 'wallpaper'
+    inst_fetch_post(LOGIN_INST, PASSWORD_INST, long_url)
+    logging.info('finished!')

@@ -4,12 +4,16 @@ import os
 from PIL import Image
 from resizeimage import resizeimage
 import logging
-logging.basicConfig(level=logging.INFO)
+
+
+class SpaceReturnEmptyImgList(Exception):
+    """Declare special exception."""
+    pass
 
 
 def get_file_extension(url):
     """Get extension from url."""
-    return '.' + str(url.split('.')[-1])
+    return '.' + url.split('.')[-1]
 
 
 def save_picture(url, path, extension):
@@ -20,7 +24,7 @@ def save_picture(url, path, extension):
         path(str): image file folder
         extension(str): image file extension
     """
-    dir_name = str(path.split('/')[0])
+    dir_name = path.split('/')[0]
 
     if not os.path.exists(dir_name):
         os.makedirs(dir_name)
@@ -47,9 +51,10 @@ def save_pictures(img_list, folder_name, file_name, extension):
     """
     extension = extension
     if not isinstance(img_list, list):
-        raise TypeError('incorrect img_list')
+        raise SpaceReturnEmptyImgList()
+
     for index, img in enumerate(img_list, 1):
-        path = folder_name + '/'+ file_name + str(index)
+        path = folder_name + '/' + file_name + str(index)
         save_picture(img, path, extension)
 
         

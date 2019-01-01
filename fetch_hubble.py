@@ -1,9 +1,6 @@
 """Get from Hubble."""
 import requests
-from .save_the_pictures import save_pictures
 import logging
-
-logging.basicConfig(level=logging.INFO)
 
 
 def extract_hubble_collection(collection):

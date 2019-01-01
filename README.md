@@ -1,9 +1,8 @@
 # Космический Инстаграм
+
 Проект предназначен для автоматизированного сбора и выкладывания в инстаграм фотографий космической тематики с сайтов
 
-http://hubblesite.org/
-
-https://www.spacex.com/
+[hubblesite.org](http://hubblesite.org) и [spacex.com](https://www.spacex.com)
 
 ### Как установить
 
@@ -21,7 +20,7 @@ pip install -r requirements.txt
 ```
 ### Использование
 
-Используем консольный ввод. Аргументом передаем название любой коллекции (например, "wallpaper") изображений с сайта http://hubblesite.org/ 
+Используем консольный ввод. Аргументом передаем название любой коллекции (например, "wallpaper") изображений с сайта [hubblesite.org](http://hubblesite.org) 
 
 ```
 >>> $ python3 main.py wallpaper
