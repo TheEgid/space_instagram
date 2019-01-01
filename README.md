@@ -19,6 +19,27 @@ Python3 должен быть уже установлен.
 ```
 pip install -r requirements.txt
 ```
+### Использование
+
+Используем консольный ввод. Аргументом передаем название коллекции ('wallpaper') изображений с сайта http://hubblesite.org/ 
+
+```
+>>> $ python3 main.py wallpaper
+```
+
+Программа выводит в консоль лог своей работы. Пример лога
+
+```
+INFO:root:download & saved images/space1.jpg
+2019-01-02 00:51:41,505 - INFO - Photo 'images\space1.jpg' is uploaded.
+INFO:root:timeout= 21
+```
+
+После этого сообщения полученные изображения загружены в инстаграм
+
+```
+INFO:root:finished!
+```
 
 ### Цель проекта
 
