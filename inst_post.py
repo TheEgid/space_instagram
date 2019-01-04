@@ -23,7 +23,7 @@ def inst_publish(login, password, folder_name, extension, timeout_value=10):
         files = os.listdir('./' + folder_name)
         myfiles = filter(lambda x: x.endswith(extension), files)
         posted_pic_list = [folder_name + '\\' + x for x in myfiles]
-    except Exception:
+    except FileNotFoundError():
         posted_pic_list = []
 
     bot = Bot()
