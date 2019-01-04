@@ -23,8 +23,9 @@ def inst_publish(login, password, folder_name, extension, timeout_value=10):
         files = os.listdir('./' + folder_name)
         myfiles = filter(lambda x: x.endswith(extension), files)
         posted_pic_list = [folder_name + '\\' + x for x in myfiles]
-    except FileNotFoundError():
-        posted_pic_list = []
+    except IOError:
+        logging.exception('file error! check the folder with images')
+        raise IOError('file error!')
 
     bot = Bot()
     bot.login(username=login, password=password)
