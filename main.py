@@ -14,11 +14,11 @@ from save_the_pictures import save_pictures
 def inst_fetch_post(login, password, collection, folder_name='images',
                     extension='.jpg'):
     """Downloading and publishing."""
-    save_pictures(fetch_space_x_last_launch(), folder_name=folder_name,
+    save_pictures(fetch_space_x_last_launch(extension), folder_name=folder_name,
                   file_name='space', extension=extension)
 
-    save_pictures(fetch_hubble_launch(collection), folder_name=folder_name,
-                  file_name='hubble', extension=extension)
+    # save_pictures(fetch_hubble_launch(collection, extension), folder_name=folder_name,
+    #               file_name='hubble', extension=extension)
 
     inst_publish(login=login, password=password, folder_name=folder_name,
                  extension=extension, timeout_value=7)

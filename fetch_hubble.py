@@ -14,7 +14,7 @@ def extract_hubble_collection(collection):
     """
     id_list = []
     _url = 'http://hubblesite.org/api/v3/images/' + collection
-    response = requests.get(_url)
+    response = requests.get(_url, verify=False)
     if response.ok:
         fetch = response.json()
         for img in fetch:
@@ -35,7 +35,7 @@ def extract_urls_images_hubble(id_list):
     img_list = []
     for id in id_list:
         _url = 'http://hubblesite.org/api/v3/image/' + str(id)
-        response = requests.get(_url)
+        response = requests.get(_url, verify=False)
         if response.ok:
             img = response.json()['image_files'][-1]
             img_list.append(img['file_url'])
@@ -45,7 +45,7 @@ def extract_urls_images_hubble(id_list):
     return img_list
 
 
-def fetch_hubble_launch(collection):
+def fetch_hubble_launch(collection, extension):
     """Save images of different collections from Hubble website.
 
     http://hubblesite.org
@@ -56,4 +56,10 @@ def fetch_hubble_launch(collection):
     """
     collections_list = extract_hubble_collection(collection)
     images_list = extract_urls_images_hubble(collections_list)
-    return images_list
+    if images_list:
+        images_list = ['http:{0}'.format(url) for url in images_list if
+                       url.endswith(extension)]
+        return images_list
+    else:
+        logging.info('no images now')
+        return None

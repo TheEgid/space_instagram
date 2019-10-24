@@ -1,5 +1,7 @@
 # Космический Инстаграм
 
+#TODO Convert .tif or .png to .jpg
+
 Проект предназначен для автоматизированного сбора и выкладывания в инстаграм фотографий космической тематики с сайтов [hubblesite.org](http://hubblesite.org) и [spacex.com](https://www.spacex.com)
 
 ### Как установить
@@ -21,7 +23,7 @@ pip install -r requirements.txt
 Используем консольный ввод. Аргументом передаем название любой коллекции (например, "wallpaper") изображений с сайта [hubblesite.org](http://hubblesite.org) 
 
 ```
-python3 main.py wallpaper
+python main.py wallpaper
 ```
 
 Программа выводит в консоль лог своей работы. Пример лога

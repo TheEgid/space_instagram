@@ -18,7 +18,6 @@ def inst_publish(login, password, folder_name, extension, timeout_value=10):
         timeout_value(int): randomized timeout of posting
 
     """
-    posted_pic_list = []
     try:
         files = os.listdir('./' + folder_name)
         myfiles = filter(lambda x: x.endswith(extension), files)

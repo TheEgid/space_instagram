@@ -29,7 +29,7 @@ def save_picture(url, path, extension):
     if not os.path.exists(dir_name):
         os.makedirs(dir_name)
     filename = path + get_file_extension(url)
-    response = requests.get(url)
+    response = requests.get(url, verify=False)
 
     if response.ok:
         with open(filename, 'wb') as f:
@@ -71,7 +71,9 @@ def make_imageresize(file_path, extension):
 
     if get_file_extension(file_path) == extension:
         fd_img = open(file_path, 'rb')
+
         img = Image.open(fd_img)
+
         try:
             if img.width > img.height:
                 img = resizeimage.resize_contain(img, gorizontal)
@@ -81,7 +83,11 @@ def make_imageresize(file_path, extension):
                 img = resizeimage.resize_contain(img, vertical)
         except resizeimage.ImageSizeError:
             logging.info('ImageSizeError' + img)
+
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
         img.save(file_path, img.format)
+
         fd_img.close()
     else:
         pass

@@ -1,5 +1,5 @@
-python_resize_image==1.1.18
-requests==2.21.0
-instabot==0.4.5
-Pillow==5.4.0
-python-dotenv==0.10.1
+python_resize_image==1.1.19
+requests==2.22.0
+instabot==0.70.0
+Pillow==6.2.1
+python-dotenv==0.10.3
