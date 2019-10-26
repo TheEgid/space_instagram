@@ -1,7 +1,5 @@
 # Космический Инстаграм
 
-#TODO Convert .tif or .png to .jpg
-
 Проект предназначен для автоматизированного сбора и выкладывания в инстаграм фотографий космической тематики с сайтов [hubblesite.org](http://hubblesite.org) и [spacex.com](https://www.spacex.com)
 
 ### Как установить

@@ -57,8 +57,7 @@ def fetch_hubble_launch(collection, extension):
     collections_list = extract_hubble_collection(collection)
     images_list = extract_urls_images_hubble(collections_list)
     if images_list:
-        images_list = ['http:{0}'.format(url) for url in images_list if
-                       url.endswith(extension)]
+        images_list = ['http:{0}'.format(url) for url in images_list]
         return images_list
     else:
         logging.info('no images now')

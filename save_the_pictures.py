@@ -16,28 +16,39 @@ def get_file_extension(url):
     return '.' + url.split('.')[-1]
 
 
-def save_picture(url, path, extension):
-    """Save image to hard disk from path.
+def get_path(file):
+    module_dir = os.path.dirname(__file__)
+    return os.path.join(module_dir, file)
 
-    Args:
-        url(str): image link
-        path(str): image file folder
-        extension(str): image file extension
-    """
-    dir_name = path.split('/')[0]
 
-    if not os.path.exists(dir_name):
-        os.makedirs(dir_name)
+def convert_to_jpg(file):
+    file = get_path(file)
+    file_name, file_extension = os.path.splitext(file)
+    if file_extension.lower() != 'jpg':
+        logging.info(f' Process with {file_name}{file_extension}')
+        im = Image.open(file)
+        rgb_im = im.convert('RGB')
+        file = f'{file_name}.jpg'
+        rgb_im.save(file)
+    return file
+
+
+def save_picture(url, path):
     filename = path + get_file_extension(url)
+    dir_name = path.split('/')[0]
+    os.makedirs(dir_name, exist_ok=True)
     response = requests.get(url, verify=False)
-
-    if response.ok:
+    response.raise_for_status()
+    global file_path
+    try:
         with open(filename, 'wb') as f:
             f.write(response.content)
-            logging.info('download & saved ' + filename)
-        make_imageresize(filename, extension)
-    else:
-        return None
+        file_path = convert_to_jpg(filename)
+        make_imageresize(file_path)
+        logging.info(f' Downloaded & saved & resized {file_path}')
+
+    except IOError:
+        pass
 
 
 def save_pictures(img_list, folder_name, file_name, extension):
@@ -47,20 +58,19 @@ def save_pictures(img_list, folder_name, file_name, extension):
         img_list(list): list contains images links
         file_name(str): pattern of the image file name
         folder_name(str): image file folder
-        extension(str): image file extension
     """
-    extension = extension
+
     if not isinstance(img_list, list):
         raise SpaceReturnEmptyImgList()
 
     for index, img in enumerate(img_list, 1):
-        path = folder_name + '/' + file_name + str(index)
-        save_picture(img, path, extension)
+        path = f'{folder_name}/{file_name}{index}'
+        save_picture(img, path)
 
-        
-def make_imageresize(file_path, extension):
+
+def make_imageresize(file_path, extension='.jpg'):
     """Resize images for standardized instagram posting and overwrite their.
-    
+
     Args:
         file_path(str): image file location
         extension(str): image file extension
