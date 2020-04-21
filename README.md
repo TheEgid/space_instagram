@@ -21,7 +21,10 @@ pip install -r requirements.txt
 Используем консольный ввод. Аргументом передаем название любой коллекции (например, "wallpaper") изображений с сайта [hubblesite.org](http://hubblesite.org) 
 
 ```
+python main.py
+
 python main.py wallpaper
+
 ```
 
 Программа выводит в консоль лог своей работы. Пример лога
